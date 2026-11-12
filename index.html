@@ -1,0 +1,107 @@
+<title>Seen Medical ID</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: single phone-width column. Name first, severe allergy alert, then conditions, meds, contacts with call buttons. */
+:root {
+  --bg: #F4F1EA;
+  --surface: #FBFAF6;
+  --ink: #14332B;
+  --ink-2: #53635B;
+  --line: #D8D2C4;
+  --accent: #14332B;
+  --on-accent: #F7F5EF;
+  --alert: #A63A2B;
+  --alert-bg: #F5DFD8;
+  --font-display: 'Jost', 'Avenir Next', 'Century Gothic', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1613; --surface: #15201C; --ink: #E6ECE5; --ink-2: #9DAEA5; --line: #2B3A34;
+    --accent: #9AD1BC; --on-accent: #0E1613; --alert: #F2A798; --alert-bg: #3B201B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1613; --surface: #15201C; --ink: #E6ECE5; --ink-2: #9DAEA5; --line: #2B3A34;
+  --accent: #9AD1BC; --on-accent: #0E1613; --alert: #F2A798; --alert-bg: #3B201B;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 16px/1.5 var(--font-body);
+  padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+.top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.brand { font: 300 28px/1 var(--font-display); margin: 0; }
+.tag { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-2); }
+h1 { font: 400 34px/1.1 var(--font-display); margin: 0; overflow-wrap: anywhere; text-wrap: balance; }
+.sub { margin: 4px 0 0; color: var(--ink-2); }
+.alert { background: var(--alert-bg); color: var(--alert); border-radius: 12px; padding: 12px 14px; font-weight: 500; }
+.alert b { display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 2px; }
+h2 { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 6px; }
+.item { padding: 10px 0; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
+.item:first-of-type { border-top: 0; }
+.item small { display: block; color: var(--ink-2); font-size: 14px; margin-top: 2px; }
+.sev { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; margin-left: 8px; }
+.sev.severe { color: var(--alert); }
+.contact { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+.contact:first-of-type { border-top: 0; }
+.contact div { min-width: 0; }
+.contact small { display: block; color: var(--ink-2); font-size: 14px; font-variant-numeric: tabular-nums; }
+.call { flex: none; background: var(--accent); color: var(--on-accent); text-decoration: none; padding: 10px 18px; border-radius: 999px; font-weight: 500; font-size: 15px; }
+.call.big { display: block; text-align: center; padding: 14px; font-size: 16px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.foot { font-size: 12px; color: var(--ink-2); text-align: center; margin: 4px 0 0; }
+</style>
+
+<main>
+  <div class="top"><p class="brand">seen</p><span class="tag">Medical ID</span></div>
+
+  <div>
+    <h1>Sam Example</h1>
+    <p class="sub">27 years old · Blood type O+</p>
+  </div>
+
+  <div class="alert"><b>Severe allergy</b>Penicillin</div>
+
+  <section>
+    <h2>Conditions</h2>
+    <div class="item">Type 1 diabetes<small>Wears an insulin pump on the abdomen. Please do not remove it. If confused or unresponsive, check blood sugar and give sugar if able to swallow.</small></div>
+    <div class="item">Epilepsy<small>Seizures usually last under two minutes. Call emergency services if one lasts over five.</small></div>
+  </section>
+
+  <section>
+    <h2>Allergies</h2>
+    <div class="item">Penicillin<span class="sev severe">Severe</span></div>
+    <div class="item">Latex<span class="sev">Moderate</span></div>
+  </section>
+
+  <section>
+    <h2>Medications</h2>
+    <div class="item">Insulin (pump)<small>Rapid-acting</small></div>
+    <div class="item">Lamotrigine<small>Twice daily</small></div>
+  </section>
+
+  <section>
+    <h2>Note</h2>
+    <div class="item">Glucose tablets are in my left jacket pocket.</div>
+  </section>
+
+  <section>
+    <h2>Emergency contacts</h2>
+    <div class="contact"><div>Jamie Example<small>Partner · +353 85 000 0001</small></div><a class="call" href="tel:+353850000001">Call</a></div>
+    <div class="contact"><div>Robin Example<small>Parent · +353 85 000 0002</small></div><a class="call" href="tel:+353850000002">Call</a></div>
+  </section>
+
+  <a class="call big" href="tel:112">Call emergency services (112)</a>
+
+  <p class="foot">Example profile with made-up details. Shown by tapping a Seen band.</p>
+</main>
